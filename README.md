@@ -16,3 +16,12 @@ let db = new sqlite3.Database(':memory:', (err) => {
 
 db.close();
 ```
+
+select * from table
+```
+db.all('select * from table', [], (rows) =>{
+  console.log(rows);
+  // {data object}
+})
+
+```
