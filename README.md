@@ -13,4 +13,6 @@ let db = new sqlite3.Database(':memory:', (err) => {
 });
 
 //console.log(db); -> database {}
+
+db.close();
 ```
