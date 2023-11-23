@@ -13,9 +13,14 @@ db.all('select * from sample', [], (err, rows) => {
   if (err) {
     throw err;
   }
-    
-    console.log(rows);
+  rows.forEach((row) => {
+    console.log(row);
+  })  
+  const data = rows;
+  return data;
 });
+
+
 
 db.close((err) => {
   if (err) {
@@ -23,3 +28,4 @@ db.close((err) => {
   }
   console.log('close db connection');
 })
+
