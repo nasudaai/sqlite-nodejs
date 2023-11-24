@@ -9,12 +9,14 @@ let db = new sqlite3.Database('./db/sample.db', (err) => {
 
 //console.log(db); -> database {}
 
-db.all('select * from sample', [], (err, rows) => {
+let sql = `SELECT DISTINCT Name name FROM sample ORDER BY name`;
+
+db.all(sql, [], (err, rows) => {
   if (err) {
     throw err;
   }
   rows.forEach((row) => {
-    console.log(row);
+    console.log(row.name);
   })  
   const data = rows;
   return data;
