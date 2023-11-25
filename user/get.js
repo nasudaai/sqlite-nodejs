@@ -9,17 +9,26 @@ let sql = 'select * from user where rowid = ?';
 
 let id = 1;
 
-
+async function f() {
+let promise = new Promise((re,rej) => 
 db.get(sql, [id], (err, row) => {
   if (err) {
     return console.error(err.message);
   }
-  return row
-    ? console.log(row.name, row.line)
-    : console.log('no');
+  const data = row;
+  return data;
 })
 
 
-db.close(() => {
-  console.log('close');
-});
+)
+let result = await promise;
+return result;
+
+}
+
+f().then((r) => console.log(r.name))
+
+
+//db.close(() => {
+ // console.log('close');
+//});
